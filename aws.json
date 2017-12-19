@@ -160,7 +160,7 @@
       "DependsOn" : ["BaseNetwork"],
       "Type" : "AWS::EC2::Instance",
       "Properties" : {
-        "InstanceType" : "h1.4xlarge",
+        "InstanceType" : "m5.4xlarge",
         "SourceDestCheck" : "false",
         "ImageId" : { "Fn::FindInMap" : [ "RegionMap", { "Ref" : "AWS::Region" }, "AMI" ]},
   "NetworkInterfaces" : [{

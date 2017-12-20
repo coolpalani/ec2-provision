@@ -169,8 +169,8 @@
         "ImageId" : { "Fn::FindInMap" : [ "RegionMap", { "Ref" : "AWS::Region" }, "AMI" ]},
         "BlockDeviceMappings" : [
                     {
-                        "DeviceName" : "/dev/sda1",
-                        "Ebs" : { "VolumeSize" : { "Ref" : "VolumeSize" } }
+                     "DeviceName" : "/dev/sda1",
+                     "Ebs" : { "VolumeSize" : { "Ref" : "VolumeSize" } }
                     }
                     ],
   "NetworkInterfaces" : [{

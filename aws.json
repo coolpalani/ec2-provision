@@ -15,6 +15,12 @@
       "ConstraintDescription" : "must be a valid CIDR range of the form x.x.x.x/x."
     }
     
+    "VolumeSize" : {
+            "Description" : "Volume size for the root volume (default 300)",
+            "Type" : "Number",
+            "Default" : "300"
+     }
+  
   },
 
   "Mappings" : {
@@ -163,6 +169,12 @@
         "InstanceType" : "m5.4xlarge",
         "SourceDestCheck" : "false",
         "ImageId" : { "Fn::FindInMap" : [ "RegionMap", { "Ref" : "AWS::Region" }, "AMI" ]},
+        "BlockDeviceMappings" : [
+                    {
+                        "DeviceName" : "/dev/sda1",
+                        "Ebs" : { "VolumeSize" : { "Ref" : "VolumeSize" } }
+                    }
+                    ],
   "NetworkInterfaces" : [{
           "GroupSet"                 : [{ "Ref" : "EC2SecurityGroup" }],
           "AssociatePublicIpAddress" : "true",
